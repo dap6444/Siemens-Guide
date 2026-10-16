@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siemens Healthineers Group Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Oswald:wght@400;600&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --plum: #502b3a;        /* PMS 7645 U — Shiraz exact */
+      --plum-dark: #3c1f2a;   /* darkened Shiraz for deep backgrounds */
+      --plum-light: #7a4f5e;  /* lightened Shiraz for hover/accents */
+      --warm-gray: #968b83;   /* PMS Warm Gray 7 U */
+      --gold: #c9a96e;
+      --gold-light: #e8d5b0;
+      --cream: #f7f3ee;
+      --white: #ffffff;
+      --text: #2a2a2a;
+      --text-muted: #6b6b6b;
+      --border: #e8e0d8;
+      --gem-bg: #fff8ee;
+      --gem-border: #c9a96e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--plum-dark);
+      color: var(--white);
+      padding: 28px 20px 24px;
+      text-align: center;
+    }
+
+    .logo-lockup {
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    /* ── LOGO LOCKUP ── */
+    .ri-lockup {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 8px;
+      line-height: 1;
+    }
+
+    .ri-residence {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 46px;
+      font-weight: 400;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+
+    .ri-inn-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-bottom: 5px;
+      gap: 2px;
+    }
+
+    .ri-inn {
+      font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+      font-size: 21px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .ri-by {
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 7px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.78);
+      letter-spacing: 3.5px;
+      line-height: 1;
+    }
+
+    .ri-location {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.62);
+      letter-spacing: 4.5px;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    header h1 {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
+
+    header h2 {
+      font-size: 26px;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    header p.subhead {
+      margin-top: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── NAV TABS ── */
+    .tab-bar {
+      background: var(--plum);
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 0;
+      border-bottom: 2px solid var(--plum-dark);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .tab-bar::-webkit-scrollbar { display: none; }
+
+    .tab-bar button {
+      flex: 0 0 auto;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.65);
+      padding: 13px 18px;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .tab-bar button:hover {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .tab-bar button.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      display: none;
+      padding: 0 0 40px;
+    }
+
+    .section.visible { display: block; }
+
+    .section-intro {
+      background: var(--white);
+      padding: 20px 20px 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 6px;
+    }
+
+    .section-intro h3 {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--plum-dark);
+      margin-bottom: 4px;
+    }
+
+    .section-intro p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    /* ── CATEGORY LABELS ── */
+    .category-label {
+      padding: 22px 20px 8px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--plum-light);
+    }
+
+    /* ── LISTING CARDS ── */
+    .listing {
+      background: var(--white);
+      margin: 0 0 2px;
+      padding: 16px 20px;
+      border-left: 3px solid transparent;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .listing:hover {
+      background: #faf8f5;
+      border-left-color: var(--plum-light);
+    }
+
+    .listing.gem {
+      background: var(--gem-bg);
+      border-left-color: var(--gold);
+    }
+
+    .listing.gem:hover {
+      background: #fff3e0;
+    }
+
+    .listing-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .listing.gem .listing-icon {
+      background: var(--gold-light);
+    }
+
+    .listing-body { flex: 1; min-width: 0; }
+
+    .listing-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 3px;
+    }
+
+    .listing-name {
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--plum-dark);
+      flex: 1;
+      min-width: 0;
+    }
+
+    .listing a .listing-name,
+    a.listing .listing-name {
+      color: var(--plum-dark);
+    }
+
+    .gem-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .listing-meta {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .listing-meta span::after {
+      content: '·';
+      margin-left: 8px;
+      opacity: 0.5;
+    }
+
+    .listing-meta span:last-child::after { content: ''; }
+
+    .listing-desc {
+      font-size: 13.5px;
+      color: #4a4a4a;
+      line-height: 1.5;
+    }
+
+    .listing-cta {
+      margin-top: 7px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--plum);
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .listing-cta::after {
+      content: '→';
+    }
+
+    /* ── HOTEL INFO SECTION ── */
+    .hotel-section {
+      padding: 0 0 40px;
+    }
+
+    .hotel-hero {
+      background: var(--plum-dark);
+      color: var(--white);
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .hotel-hero h3 {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .hotel-hero p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      margin-top: 4px;
+    }
+
+    .amenity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 6px 0;
+    }
+
+    .amenity-item {
+      background: var(--white);
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .amenity-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .amenity-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--plum-dark);
+      line-height: 1.3;
+    }
+
+    .amenity-sub {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .contact-card {
+      background: var(--white);
+      margin: 6px 0 2px;
+      padding: 20px;
+    }
+
+    .contact-card h4 {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .contact-row:last-child { border-bottom: none; }
+
+    .contact-row-icon {
+      font-size: 17px;
+      width: 28px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .contact-row-label {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-row-value {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--plum-dark);
+    }
+
+    .bonvoy-strip {
+      background: var(--plum);
+      color: var(--white);
+      padding: 18px 20px;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .bonvoy-strip .icon { font-size: 26px; flex-shrink: 0; }
+
+    .bonvoy-strip h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 2px;
+    }
+
+    .bonvoy-strip p {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--plum-dark);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 20px;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── UTILITY ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0 20px;
+    }
+
+    a { text-decoration: none; }
+
+    @media (min-width: 600px) {
+      body { max-width: 640px; margin: 0 auto; }
+      header { border-radius: 0; }
+    }
+
+    /* ── ICONS ── */
+    .icon-svg {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      display: block;
+      flex-shrink: 0;
+    }
+    .listing-icon svg { width: 19px; height: 19px; color: var(--plum-dark); }
+    .amenity-icon svg { width: 22px; height: 22px; color: var(--plum); }
+    .contact-row-icon svg { width: 18px; height: 18px; color: var(--plum); margin: 0 auto; }
+
+    /* ── GUEST DISCOUNT ── */
+    .disc-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#009B8E;color:#fff;flex-shrink:0;margin-top:-1px}
+    .disc-badge svg{width:13px;height:13px;stroke-width:2.2}
+    .disc-legend{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:12px;color:var(--text-muted)}
+    .disc-legend .disc-badge{width:18px;height:18px;margin-top:0}
+    .disc-legend .disc-badge svg{width:11px;height:11px}
+    /* ── VOUCHER ── */
+    .voucher-badge{display:inline-flex;align-items:center;gap:3px;background:#009B8E;color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+    .tab-bar{justify-content:safe center}
+    .tab-bar button{padding:13px 10px;font-size:11px;letter-spacing:0.05em}
+    @media (max-width:520px){
+      .tab-bar button{padding:12px 5px;font-size:10.5px;letter-spacing:0.03em;flex:1 1 auto}
+    }
+    @media (min-width:600px){.tab-bar button{padding:13px 14px;font-size:12px;letter-spacing:0.07em}}
+    .icon-inline { width: 14px; height: 14px; vertical-align: -2.5px; }
+  </style>
+</head>
+<body>
+<svg style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true">
+<defs>
+<symbol id="icon-restaurant" viewBox="0 0 24 24"><line x1="5" y1="2" x2="5" y2="8"/><line x1="7" y1="2" x2="7" y2="8"/><line x1="9" y1="2" x2="9" y2="8"/><path d="M5 8h4"/><line x1="7" y1="8" x2="7" y2="22"/><ellipse cx="17" cy="5.3" rx="2.6" ry="3.4"/><line x1="17" y1="8.7" x2="17" y2="22"/></symbol>
+<symbol id="icon-bar" viewBox="0 0 24 24"><path d="M5 8h11v9a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V8z"/><path d="M16 10h2a2 2 0 0 1 0 4h-2"/><line x1="8" y1="5" x2="8" y2="8"/><line x1="11" y1="4" x2="11" y2="8"/><line x1="14" y1="5" x2="14" y2="8"/></symbol>
+<symbol id="icon-shot-lime" viewBox="0 0 24 24"><path d="M3 8h6l-1 12H4z"/><circle cx="16.5" cy="13.5" r="4.8"/><circle cx="16.5" cy="13.5" r="1.8"/><line x1="16.5" y1="8.9" x2="16.5" y2="11.5"/><line x1="20.4" y1="13.5" x2="18" y2="13.5"/><line x1="16.5" y1="18.1" x2="16.5" y2="15.5"/><line x1="12.6" y1="13.5" x2="15" y2="13.5"/></symbol>
+<symbol id="icon-beer-glass" viewBox="0 0 24 24"><path d="M8 3h9l-1.6 18H9.6z"/><path d="M8.6 8.5h7.8"/><circle cx="12" cy="13" r=".8" fill="currentColor" stroke="none"/><circle cx="14.5" cy="16" r=".8" fill="currentColor" stroke="none"/></symbol>
+<symbol id="icon-burger" viewBox="0 0 24 24"><path d="M4 10a8 7 0 0 1 16 0z"/><circle cx="9" cy="5.2" r=".6" fill="currentColor" stroke="none"/><circle cx="12.2" cy="4.2" r=".6" fill="currentColor" stroke="none"/><circle cx="15.4" cy="5.2" r=".6" fill="currentColor" stroke="none"/><path d="M4 10v6.5a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V10z"/><line x1="4.6" y1="14" x2="19.4" y2="14"/></symbol>
+<symbol id="icon-noodle-bowl" viewBox="0 0 24 24"><path d="M3 10h16a8 8 0 0 1-16 0z"/><ellipse cx="11" cy="10" rx="8" ry="1.7"/><line x1="13.5" y1="9.5" x2="20" y2="1.5"/><line x1="16" y1="9.5" x2="21.5" y2="4"/></symbol>
+<symbol id="icon-pig" viewBox="0 0 24 24"><path d="M6 4 9 9 4.3 8.3Z"/><path d="M18 4 15 9 19.7 8.3Z"/><circle cx="12" cy="13" r="7.3"/><rect x="9" y="14" width="6" height="4" rx="2"/><circle cx="10.6" cy="16" r=".6" fill="currentColor" stroke="none"/><circle cx="13.4" cy="16" r=".6" fill="currentColor" stroke="none"/></symbol>
+<symbol id="icon-cafe" viewBox="0 0 24 24"><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3c-1 1-1 2 0 3"/><path d="M12 3c-1 1-1 2 0 3"/></symbol>
+<symbol id="icon-dessert" viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 1 4 4c0 1.7-1 2.7-2.2 3.3H10.2C9 8.7 8 7.7 8 6a4 4 0 0 1 4-4z"/><path d="M9 9.3 12 21l3-11.7"/></symbol>
+<symbol id="icon-nature" viewBox="0 0 24 24"><path d="M12 2 7.5 9h2.7L6 15h4.5v6h3v-6H18l-4.2-6h2.7z"/></symbol>
+<symbol id="icon-music" viewBox="0 0 24 24"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><path d="M9 18V4l12-2v14"/></symbol>
+<symbol id="icon-landmark" viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="10"/><line x1="10" y1="18" x2="10" y2="10"/><line x1="14" y1="18" x2="14" y2="10"/><line x1="18" y1="18" x2="18" y2="10"/><path d="M4 10l8-6 8 6"/></symbol>
+<symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M20 4c-8 0-14 6-14 14 0 0 10 2 14-6 3-4 3-8 0-8z"/><path d="M6 18c2-4 6-8 10-10"/></symbol>
+<symbol id="icon-dice" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></symbol>
+<symbol id="icon-dumbbell" viewBox="0 0 24 24"><path d="M4 9v6M2 10v4M20 9v6M22 10v4M7 12h10"/><rect x="5" y="8" width="3" height="8" rx="1"/><rect x="16" y="8" width="3" height="8" rx="1"/></symbol>
+<symbol id="icon-waves" viewBox="0 0 24 24"><path d="M2 8c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M2 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M2 20c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></symbol>
+<symbol id="icon-pot" viewBox="0 0 24 24"><path d="M4 10h16v2a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6v-2z"/><path d="M2 10h20"/><path d="M8 10V7a1 1 0 0 1 1-1h1"/><path d="M15 10V7a1 1 0 0 1 1-1h1"/></symbol>
+<symbol id="icon-shirt" viewBox="0 0 24 24"><path d="M8 3 4 6l2 3 2-1.3V19h8V7.7L18 9l2-3-4-3-2 2h-4z"/></symbol>
+<symbol id="icon-presentation" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20l4-4 4 4"/><path d="M7 8l3 3 2-2 4 4"/></symbol>
+<symbol id="icon-flame" viewBox="0 0 24 24"><path d="M12 2c2.2 3.8-1.8 4.8-1.8 7.6a3.8 3.8 0 0 0 7.6 0c0-1.9-1-2.9-1.9-3.8.5 1.9-.9 2.9-1.9 1.9 1-1.9-.5-3.8-2-5.7z"/></symbol>
+<symbol id="icon-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="icon-smartphone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></symbol>
+<symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+<symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 22s7-7.5 7-12a7 7 0 0 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c3 3 3 15 0 18"/><path d="M12 3c-3 3-3 15 0 18"/></symbol>
+<symbol id="icon-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.3" fill="currentColor" stroke="none"/><circle cx="17" cy="20" r="1.3" fill="currentColor" stroke="none"/><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.8h7.2a2 2 0 0 0 2-1.6L21 8H6"/></symbol>
+<symbol id="icon-message" viewBox="0 0 24 24"><path d="M4 4h16v11H8l-4 4V4z"/></symbol>
+<symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></symbol>
+<symbol id="icon-gift" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="4" rx="1"/><rect x="5" y="13" width="14" height="8"/><line x1="12" y1="9" x2="12" y2="21"/><path d="M12 9c-2-4-7-3-6 0s6 0 6 0z"/><path d="M12 9c2-4 7-3 6 0s-6 0-6 0z"/></symbol>
+<symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></symbol>
+<symbol id="icon-hotel-building" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><rect x="10" y="15" width="4" height="6"/><circle cx="8" cy="7" r=".9" fill="currentColor" stroke="none"/><circle cx="12" cy="7" r=".9" fill="currentColor" stroke="none"/><circle cx="16" cy="7" r=".9" fill="currentColor" stroke="none"/><circle cx="8" cy="11" r=".9" fill="currentColor" stroke="none"/><circle cx="16" cy="11" r=".9" fill="currentColor" stroke="none"/></symbol>
+<symbol id="icon-office-building" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="1"/><line x1="6" y1="7" x2="18" y2="7"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="6" y1="17" x2="18" y2="17"/><line x1="10" y1="2" x2="10" y2="22"/><line x1="14" y1="2" x2="14" y2="22"/></symbol>
+<symbol id="icon-steering-wheel" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.6"/><line x1="12" y1="14.6" x2="12" y2="20.5"/><line x1="10.1" y1="10.6" x2="4.2" y2="7.2"/><line x1="13.9" y1="10.6" x2="19.8" y2="7.2"/></symbol>
+<symbol id="icon-golf" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.2"/><circle cx="9.8" cy="7.2" r=".5" fill="currentColor" stroke="none"/><circle cx="12.6" cy="6.4" r=".5" fill="currentColor" stroke="none"/><circle cx="14.4" cy="9" r=".5" fill="currentColor" stroke="none"/><circle cx="10.2" cy="10.6" r=".5" fill="currentColor" stroke="none"/><path d="M9 15l3 5 3-5z"/><line x1="12" y1="20" x2="12" y2="21.5"/></symbol>
+<symbol id="icon-hockey" viewBox="0 0 24 24"><path d="M16 3 7 16.5 2.5 16.5"/><ellipse cx="14.5" cy="19.3" rx="3.8" ry="1.9" fill="currentColor" stroke="none"/></symbol>
+<symbol id="icon-cinema" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1.5"/><path d="M3 10l1.3-6 16.7 3.3-1.3 6z"/><line x1="7.7" y1="4.7" x2="9" y2="10"/><line x1="15.3" y1="6.2" x2="16.6" y2="10.6"/></symbol>
+<symbol id="icon-ticket" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 0 0 4v0a2 2 0 0 1 0 0v0a2 2 0 0 0 0 4v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2a2 2 0 0 0 0-4 2 2 0 0 0 0-4V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"/><line x1="14" y1="6" x2="14" y2="8"/><line x1="14" y1="11" x2="14" y2="13"/><line x1="14" y1="16" x2="14" y2="18"/></symbol>
+<symbol id="icon-pizza" viewBox="0 0 24 24"><path d="M3 6c5.5-3 12.500-3 18 0L12 22z"/><circle cx="10" cy="9.500" r="1.200"/><circle cx="14.500" cy="11" r="1.200"/><circle cx="12" cy="15" r="1.200"/></symbol>
+<symbol id="icon-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="5.700" y1="5.700" x2="18.300" y2="18.300"/></symbol>
+<symbol id="icon-dollar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.800 9.200c-.5-1-1.500-1.500-2.800-1.500-1.600 0-2.700.8-2.700 2 0 3 5.700 1.500 5.700 4.500 0 1.200-1.200 2.100-2.900 2.100-1.400 0-2.500-.6-3-1.700"/><line x1="12" y1="6" x2="12" y2="7.700"/><line x1="12" y1="16.300" x2="12" y2="18"/></symbol>
+<symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="icon-cookie" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 4 4 0 0 1-4-4 4 4 0 0 1-5-5z"/><circle cx="9" cy="10" r=".9" fill="currentColor" stroke="none"/><circle cx="14" cy="14" r=".9" fill="currentColor" stroke="none"/><circle cx="8.500" cy="15" r=".9" fill="currentColor" stroke="none"/><circle cx="13" cy="8.500" r=".7" fill="currentColor" stroke="none"/><circle cx="16.500" cy="16.500" r=".7" fill="currentColor" stroke="none"/></symbol>
+<symbol id="icon-percent" viewBox="0 0 24 24"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.500" cy="6.500" r="2.500"/><circle cx="17.500" cy="17.500" r="2.500"/></symbol>
+<symbol id="icon-lotus" viewBox="0 0 24 24"><path d="M12 3.500c2.600 2.600 3.200 6 0 10.500-3.200-4.500-2.600-7.900 0-10.500z"/><path d="M10 13c-3.500 .5-6.200-1.300-7-5 3.200-.2 5.800 1.200 7 5z"/><path d="M14 13c3.500 .5 6.200-1.300 7-5-3.200-.2-5.800 1.200-7 5z"/><path d="M5 17.500c4.200 3 9.800 3 14 0"/></symbol>
+<symbol id="icon-escape" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="10" r="2.3"/><path d="M10.5 12h3l-.8 4h-1.4z"/></symbol>
+</defs>
+</svg>
+
+<!-- HEADER -->
+<header>
+  <!-- Dual logo row -->
+  <div style="display:flex; align-items:center; justify-content:center; gap:18px; margin-bottom:14px; flex-wrap:wrap;">
+    <!-- Residence Inn lockup -->
+    <div class="logo-lockup" style="margin-bottom:0;">
+      <div class="ri-lockup">
+        <span class="ri-residence">Residence</span>
+        <div class="ri-inn-block">
+          <span class="ri-inn">INN</span>
+          <span class="ri-by">BY MARRIOTT</span>
+        </div>
+      </div>
+    </div>
+    <!-- Divider -->
+    <div style="width:1px; height:44px; background:rgba(255,255,255,0.28); flex-shrink:0;"></div>
+    <!-- Siemens Healthineers SVG logo (adapted for dark bg) -->
+    <svg viewBox="0 0 310 78" xmlns="http://www.w3.org/2000/svg" height="46" style="flex-shrink:0;">
+      <!-- SIEMENS wordmark in white -->
+      <text x="2" y="30" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="2.5">SIEMENS</text>
+      <!-- Healthineers wordmark in brand orange -->
+      <text x="2" y="66" font-family="Arial, sans-serif" font-weight="700" font-size="32" fill="#E87722">Healthineers</text>
+      <!-- Dot cluster (orange, upper-right of Healthineers) -->
+      <circle cx="244" cy="52" r="2.2" fill="#E87722"/>
+      <circle cx="251" cy="45" r="2.8" fill="#E87722"/>
+      <circle cx="260" cy="56" r="3.2" fill="#E87722"/>
+      <circle cx="256" cy="39" r="2.0" fill="#E87722"/>
+      <circle cx="267" cy="48" r="4.0" fill="#E87722"/>
+      <circle cx="274" cy="40" r="3.0" fill="#E87722"/>
+      <circle cx="277" cy="58" r="5.0" fill="#E87722"/>
+      <circle cx="284" cy="47" r="4.0" fill="#E87722"/>
+      <circle cx="288" cy="63" r="6.5" fill="#E87722"/>
+      <circle cx="264" cy="34" r="2.2" fill="#E87722"/>
+      <circle cx="275" cy="32" r="3.2" fill="#E87722"/>
+      <circle cx="286" cy="38" r="4.5" fill="#E87722"/>
+      <circle cx="295" cy="52" r="5.5" fill="#E87722"/>
+      <circle cx="300" cy="40" r="3.5" fill="#E87722"/>
+    </svg>
+  </div>
+  <div class="ri-location" style="margin-top:0; margin-bottom:10px;">Cary–Raleigh</div>
+  <h2 style="font-size:20px; font-weight:600; color:white; letter-spacing:0.03em;">At MacGregor Village</h2>
+  <p class="subhead">103 Edinburgh South Drive, Cary NC</p>
+</header>
+
+<!-- TAB NAVIGATION -->
+<div class="tab-bar" role="tablist">
+  <button class="active" onclick="showTab('group', this)" role="tab">My Group</button>
+  <button onclick="showTab('voucher', this)" role="tab">Voucher</button>
+  <button onclick="showTab('dine', this)" role="tab">Dine &amp; Sips</button>
+  <button onclick="showTab('do', this)" role="tab">Explore</button>
+  <button onclick="showTab('hotel', this)" role="tab">Our Hotel</button>
+</div>
+
+<!-- ══════════════════════════════════ -->
+<!-- TAB: GROUP                         -->
+<!-- ══════════════════════════════════ -->
+<div id="tab-group" class="section visible">
+
+  <!-- Welcome banner -->
+  <div style="background:var(--plum-dark); padding:22px 20px 18px; text-align:center;">
+    <div style="font-size:10px; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:6px;">Welcome</div>
+    <div style="font-size:19px; font-weight:600; color:white; line-height:1.3; margin-bottom:8px;">Siemens Healthineers Team</div>
+    <div style="font-size:13.5px; color:rgba(255,255,255,0.75); line-height:1.6;">We're glad to have you as our guests. This guide is customized for your group — your shuttle schedule, team contact, and everything Cary has to offer, all in one place.</div>
+  </div>
+
+  <!-- Shuttle schedule -->
+  <div style="background:#E87722; margin:6px 0 2px; padding:20px 20px 18px;">
+    <div style="font-size:10px; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.75); margin-bottom:10px;">Daily Shuttle · Complimentary</div>
+    <div style="display:flex; gap:12px; align-items:stretch;">
+      <!-- To office -->
+      <div style="flex:1; background:rgba(255,255,255,0.18); border-radius:10px; padding:14px 16px; text-align:center;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-bottom:4px; color:white;"><svg class="icon-svg" width="24" height="24"><use href="#icon-hotel-building"/></svg><span style="font-size:16px; opacity:.85;">&#8594;</span><svg class="icon-svg" width="24" height="24"><use href="#icon-office-building"/></svg></div>
+        <div style="font-size:22px; font-weight:800; color:white; line-height:1;">8:30 AM</div>
+        <div style="font-size:11px; font-weight:600; color:rgba(255,255,255,0.85); margin-top:4px; text-transform:uppercase; letter-spacing:0.08em;">Hotel to Office</div>
+        <div style="font-size:11px; color:rgba(255,255,255,0.7); margin-top:3px;">221 Gregson Drive</div>
+      </div>
+      <!-- Return -->
+      <div style="flex:1; background:rgba(255,255,255,0.18); border-radius:10px; padding:14px 16px; text-align:center;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-bottom:4px; color:white;"><svg class="icon-svg" width="24" height="24"><use href="#icon-office-building"/></svg><span style="font-size:16px; opacity:.85;">&#8594;</span><svg class="icon-svg" width="24" height="24"><use href="#icon-hotel-building"/></svg></div>
+        <div style="font-size:22px; font-weight:800; color:white; line-height:1;">5:10 PM</div>
+        <div style="font-size:11px; font-weight:600; color:rgba(255,255,255,0.85); margin-top:4px; text-transform:uppercase; letter-spacing:0.08em;">Office to Hotel</div>
+        <div style="font-size:11px; color:rgba(255,255,255,0.7); margin-top:3px;">103 Edinburgh S Drive</div>
+      </div>
+    </div>
+    <div style="margin-top:12px; font-size:12px; color:rgba(255,255,255,0.7); text-align:center;">See front desk for any changes · Shuttle departs promptly</div>
+  </div>
+
+  <!-- On-site events -->
+  <div style="background:white; margin:6px 0 2px; padding:20px 20px 18px;">
+    <div style="font-size:10px; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--plum); margin-bottom:14px;">On-Site Events</div>
+
+    <div style="border:1px solid var(--border); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+      <div style="width:42px; height:42px; border-radius:50%; background:var(--gold-light); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--plum-dark);"><svg class="icon-svg" width="19" height="19"><use href="#icon-restaurant"/></svg></div>
+      <div style="flex:1;">
+        <div style="font-size:15px; font-weight:700; color:var(--plum-dark); margin-bottom:6px;">Welcome Dinner Reception</div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text); margin-bottom:5px;">
+          <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-calendar"/></svg></span> <span>Monday, October 19, 2026<br>7:30&nbsp;PM</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text);">
+          <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-pin"/></svg></span> Meeting Room · Lobby Level
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text); margin-top:5px;">
+          <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-beer-glass"/></svg></span> 2 complimentary drinks
+        </div>
+      </div>
+    </div>
+
+    <div style="font-size:10px; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--plum); margin:22px 0 2px;">Included With Your Stay</div>
+    <a href="#" onclick="showTab('voucher', document.querySelectorAll('.tab-bar button')[1]); return false;" style="border:1px solid var(--border); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start; text-decoration:none; color:inherit; margin-top:12px;">
+      <div style="width:42px; height:42px; border-radius:50%; background:var(--gold-light); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--plum-dark);"><svg class="icon-svg" width="19" height="19"><use href="#icon-ticket"/></svg></div>
+      <div style="flex:1;">
+        <div style="font-size:15px; font-weight:700; color:var(--plum-dark); margin-bottom:6px;">Your Dinner Voucher</div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text); margin-bottom:5px;">
+          <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-calendar"/></svg></span> <span>Tue · Wed · Thu at 4 select restaurants</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text);">
+          <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-dollar"/></svg></span> <span>$40 max per voucher<br><span style="color:var(--plum); font-weight:600; white-space:nowrap; line-height:1.9;">Tap for details &rarr;</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="#" onclick="showTab('hotel', document.querySelectorAll('.tab-bar button')[4]); setTimeout(function(){var e=document.getElementById('laundry-credit'); if(e){e.scrollIntoView({behavior:'smooth',block:'center'});}},120); return false;" style="border:1px solid var(--border); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start; text-decoration:none; color:inherit; margin-top:12px;">
+      <div style="width:42px; height:42px; border-radius:50%; background:var(--gold-light); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--plum-dark);"><svg class="icon-svg" width="19" height="19"><use href="#icon-shirt"/></svg></div>
+      <div style="flex:1;">
+        <div style="font-size:15px; font-weight:700; color:var(--plum-dark); margin-bottom:6px;">Your Laundry Voucher</div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text); margin-bottom:5px;">
+          <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-clock"/></svg></span> Guest laundry open 24/7
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text);">
+          <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-dollar"/></svg></span> <span>$16 weekly credit<br><span style="color:var(--plum); font-weight:600; white-space:nowrap; line-height:1.9;">Tap for details &rarr;</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a href="#" onclick="showTab('hotel', document.querySelectorAll('.tab-bar button')[4]); setTimeout(function(){var e=document.getElementById('breakfast-amenity'); if(e){e.scrollIntoView({behavior:'smooth',block:'center'});}},120); return false;" style="border:1px solid var(--border); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start; text-decoration:none; color:inherit; margin-top:12px;">
+      <div style="width:42px; height:42px; border-radius:50%; background:var(--gold-light); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--plum-dark);"><svg class="icon-svg" width="19" height="19"><use href="#icon-cafe"/></svg></div>
+      <div style="flex:1;">
+        <div style="font-size:15px; font-weight:700; color:var(--plum-dark); margin-bottom:6px;">Complimentary Breakfast</div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text); margin-bottom:5px;">
+          <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-clock"/></svg></span> <span>Mon–Fri 6:30–9:30 AM<br>Sat–Sun 7–10 AM</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text);">
+          <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-cafe"/></svg></span> <span>Hot breakfast, every morning<br><span style="color:var(--plum); font-weight:600; white-space:nowrap; line-height:1.9;">Tap for details &rarr;</span></span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Group contacts -->
+  <div style="background:white; margin:6px 0 2px; padding:20px 20px 18px;">
+    <div style="font-size:10px; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--plum); margin-bottom:14px;">Your Siemens Healthineers Contact</div>
+
+    <!-- Gary Patterson -->
+    <div style="border:1px solid var(--border); border-radius:10px; padding:16px;">
+      <div style="display:flex; align-items:flex-start; gap:12px;">
+        <div style="width:42px; height:42px; border-radius:50%; background:#E87722; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; color:white; font-weight:700;">GP</div>
+        <div style="flex:1;">
+          <div style="font-size:15px; font-weight:700; color:var(--plum-dark); margin-bottom:2px;">Gary Patterson</div>
+          <div style="font-size:12px; color:var(--text-muted); line-height:1.4; margin-bottom:10px;">Onboarding Program Manager, Customer Services</div>
+          <a href="tel:+19842896301" style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--plum); font-weight:600; margin-bottom:6px;">
+            <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-phone"/></svg></span> (984) 289-6301
+          </a>
+          <a href="mailto:gary.patterson@siemens-healthineers.com" style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--plum); font-weight:500; word-break:break-all;">
+            <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-mail"/></svg></span> gary.patterson@siemens-healthineers.com
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="font-size:10px; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--plum); margin:22px 0 14px;">Your Residence Inn Cary Raleigh Contact</div>
+
+    <!-- Residence Inn contact: Maria Eaton -->
+    <div style="border:1px solid var(--border); border-radius:10px; padding:16px;">
+      <div style="display:flex; align-items:flex-start; gap:12px;">
+        <div style="width:42px; height:42px; border-radius:50%; background:var(--plum); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; color:white; font-weight:700;">ME</div>
+        <div style="flex:1;">
+          <div style="font-size:15px; font-weight:700; color:var(--plum-dark); margin-bottom:2px;">Maria Eaton</div>
+          <div style="font-size:12px; color:var(--text-muted); line-height:1.4; margin-bottom:10px;">Director of Sales</div>
+          <a href="tel:+19194103118" style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--plum); font-weight:600; margin-bottom:6px;">
+            <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-phone"/></svg></span> (919) 410-3118
+          </a>
+          <a href="mailto:Maria.Eaton2@marriott.com" style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--plum); font-weight:500; word-break:break-all;">
+            <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-mail"/></svg></span> Maria.Eaton2@marriott.com
+          </a>
+          <a href="#" onclick="showTab('hotel', document.querySelectorAll('.tab-bar button')[4]); setTimeout(function(){var e=document.getElementById('hotel-management'); if(e){e.scrollIntoView({behavior:'smooth',block:'start'});}},120); return false;" style="display:inline-block; margin-top:10px; font-size:12.5px; font-weight:600; color:var(--plum); letter-spacing:0.03em; white-space:nowrap;">Tap for additional contacts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Office address -->
+  <a href="https://maps.google.com/?q=221+Gregson+Drive+Cary+NC+27511" target="_blank" style="display:flex; gap:14px; align-items:center; background:white; margin:2px 0; padding:16px 20px; text-decoration:none; border-left:3px solid var(--gold);">
+    <div style="flex-shrink:0; color:var(--gold);"><svg class="icon-svg" width="24" height="24"><use href="#icon-pin"/></svg></div>
+    <div>
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--plum); margin-bottom:2px;">Siemens Healthineers Office</div>
+      <div style="font-size:14px; font-weight:600; color:var(--plum-dark);">221 Gregson Drive</div>
+      <div style="font-size:13px; color:var(--text-muted);">Cary, NC 27511 · Tap for directions</div>
+    </div>
+  </a>
+
+</div>
+
+
+<!-- ══════════════════════════════════ -->
+<!-- TAB: DINNER VOUCHER                -->
+<!-- ══════════════════════════════════ -->
+<div id="tab-voucher" class="section">
+
+  <div style="background:var(--plum-dark); padding:22px 20px 18px; text-align:center;">
+    <div style="color:var(--gold); display:flex; justify-content:center; margin-bottom:8px;"><svg class="icon-svg" width="30" height="30"><use href="#icon-ticket"/></svg></div>
+    <div style="font-size:10px; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:6px;">Included With Your Stay</div>
+    <div style="font-size:19px; font-weight:600; color:white; line-height:1.3; margin-bottom:8px;">Your Dinner Voucher</div>
+    <div style="font-size:13.5px; color:rgba(255,255,255,0.75); line-height:1.6;">You received a voucher at check-in. Use it for dinner at any of the four restaurants below, Tuesday through Thursday.</div>
+  </div>
+
+  <div style="background:white; margin:6px 0 2px; padding:20px 20px 8px;">
+    <div style="font-size:10px; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--plum); margin-bottom:4px;">The Details</div>
+    <div style="display:flex; gap:14px; align-items:flex-start; padding:12px 0; border-bottom:1px solid var(--border);">
+      <div style="width:38px; height:38px; border-radius:50%; background:var(--gold-light); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--plum-dark);"><svg class="icon-svg" width="19" height="19"><use href="#icon-calendar"/></svg></div>
+      <div><div style="font-size:14.5px; font-weight:700; color:var(--plum-dark); margin-bottom:1px;">Valid Tuesday, Wednesday &amp; Thursday only</div><div style="font-size:13px; color:#4a4a4a; line-height:1.45;">Not valid on other days of the week.</div></div>
+    </div>
+    <div style="display:flex; gap:14px; align-items:flex-start; padding:12px 0; border-bottom:1px solid var(--border);">
+      <div style="width:38px; height:38px; border-radius:50%; background:var(--gold-light); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--plum-dark);"><svg class="icon-svg" width="19" height="19"><use href="#icon-ban"/></svg></div>
+      <div><div style="font-size:14.5px; font-weight:700; color:var(--plum-dark); margin-bottom:1px;">No alcohol</div><div style="font-size:13px; color:#4a4a4a; line-height:1.45;">Alcoholic beverages can&rsquo;t be charged to the voucher.</div></div>
+    </div>
+    <div style="display:flex; gap:14px; align-items:flex-start; padding:12px 0; border-bottom:1px solid var(--border);">
+      <div style="width:38px; height:38px; border-radius:50%; background:var(--gold-light); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--plum-dark);"><svg class="icon-svg" width="19" height="19"><use href="#icon-dollar"/></svg></div>
+      <div><div style="font-size:14.5px; font-weight:700; color:var(--plum-dark); margin-bottom:1px;">$40 maximum</div><div style="font-size:13px; color:#4a4a4a; line-height:1.45;">Inclusive of all tax and gratuity. Anything over $40 is paid by you.</div></div>
+    </div>
+
+  </div>
+
+  <div class="category-label">Your 4 Voucher Restaurants</div>
+
+  <div class="listing">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-burger"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top"><div class="listing-name">MacGregor Draft House</div></div>
+      <div class="listing-meta"><span>Bar &amp; Grill</span><span>Outside your front door</span></div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="listing-cta" href="https://maps.google.com/?q=MacGregor+Draft+House+Cary+NC" target="_blank">Directions</a>
+        <a class="listing-cta" href="https://macgregordrafthouse.com/" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="listing">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-noodle-bowl"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top"><div class="listing-name">Wasabi</div></div>
+      <div class="listing-meta"><span>Japanese · Sushi · Thai</span><span>Outside your front door</span></div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="listing-cta" href="https://maps.google.com/?q=Wasabi+Restaurant+107+Edinburgh+South+Dr+Cary+NC" target="_blank">Directions</a>
+        <a class="listing-cta" href="https://wasabicarync.com/" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="listing">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-restaurant"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top"><div class="listing-name">Cilantro Indian Cafe</div></div>
+      <div class="listing-meta"><span>Indian</span><span>Outside your front door</span></div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="listing-cta" href="https://maps.google.com/?q=Cilantro+Indian+Cafe+Cary+NC" target="_blank">Directions</a>
+        <a class="listing-cta" href="https://www.cilantroindia.com/" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="listing">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-pizza"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top"><div class="listing-name">Jet&rsquo;s Pizza</div></div>
+      <div class="listing-meta"><span>Detroit-Style Pizza</span><span>Salads</span><span>Sandwiches</span><span>Delivery</span></div>
+      <div class="listing-desc">3420 Ten-Ten Road, Suite A-308</div>
+      <a href="tel:+19192300083" style="display:flex; align-items:center; gap:8px; margin-top:7px; font-size:13.5px; font-weight:600; color:var(--plum); white-space:nowrap;"><span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-phone"/></svg></span> (919) 230-0083</a>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="listing-cta" href="https://maps.google.com/?q=Jet%27s+Pizza+3420+Ten-Ten+Road+Cary+NC" target="_blank">Directions</a>
+        <a class="listing-cta" href="https://www.jetspizza.com/stores/north-carolina/cary/3420-ten-ten-road-suite-a-308" target="_blank">View menu</a>
+      </div>
+    </div>
+    <a href="https://www.jetspizza.com/stores/north-carolina/cary/3420-ten-ten-road-suite-a-308" target="_blank" style="flex-shrink:0; text-align:center; text-decoration:none; align-self:center;">
+      <img src="data:image/png;base64,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" alt="Scan to see the Jet&rsquo;s Pizza menu" style="width:78px; height:78px; display:block; border:1px solid var(--border); border-radius:6px;" />
+      <div style="font-size:9.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--plum); margin-top:4px;">Scan for menu</div>
+    </a>
+  </div>
+
+
+  <a href="tel:+19194103118" style="display:flex; gap:14px; align-items:center; background:var(--gem-bg); margin:6px 0 2px; padding:18px 20px; text-decoration:none; border-left:3px solid var(--gold);">
+    <div style="flex-shrink:0; color:var(--gold);"><svg class="icon-svg" width="26" height="26"><use href="#icon-phone"/></svg></div>
+    <div>
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--plum); margin-bottom:2px;">Trouble Redeeming?</div>
+      <div style="font-size:14px; font-weight:600; color:var(--plum-dark);">Call Maria Eaton · (919) 410-3118</div>
+      <div style="font-size:13px; color:var(--text-muted);">Director of Sales · Tap to call</div>
+    </div>
+  </a>
+
+</div>
+
+<!-- ══════════════════════════════════ -->
+<!-- TAB: DINE                          -->
+<!-- ══════════════════════════════════ -->
+<div id="tab-dine" class="section">
+
+  <div class="section-intro">
+    <h3>Where to Eat &amp; Drink</h3>
+    <p>From steps-away to worth-the-drive — every listing is a genuine recommendation from our team. Coffee, cocktails and dessert are further down under Sips &amp; Sweets.</p>
+  </div>
+
+  <!-- STEPS AWAY -->
+  <div class="category-label">Right Outside Your Door · MacGregor Village</div>
+
+  <div class="listing gem">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-burger"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">MacGregor Draft House</div>
+        <div class="voucher-badge">Voucher</div>
+      </div>
+      <div class="listing-meta">
+        <span>Bar &amp; Grill</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">Your literal neighbor. An impressive tap wall, solid bar food, and the kind of laid-back energy that makes it easy to end up staying longer than planned. Great for a casual dinner or a late drink after a long day of travel.</div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="listing-cta" href="https://maps.google.com/?q=MacGregor+Draft+House+Cary+NC" target="_blank">Directions</a>
+        <a class="listing-cta" href="https://macgregordrafthouse.com/" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="listing gem">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-noodle-bowl"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Wasabi</div>
+        <div class="voucher-badge">Voucher</div>
+        <div class="gem-badge">★ Local Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>Japanese · Sushi · Thai</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">Don't sleep on this one. In business since 2003, Wasabi has been quietly serving some of the Triangle's best sushi and Thai food from this very shopping center. The rolls are fresh, the Thai dishes are legit, and it's always a safe call. Locals know.</div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="listing-cta" href="https://maps.google.com/?q=Wasabi+Restaurant+107+Edinburgh+South+Dr+Cary+NC" target="_blank">Directions</a>
+        <a class="listing-cta" href="https://wasabicarync.com/" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="listing">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-restaurant"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Cilantro Indian Cafe</div>
+        <div class="voucher-badge">Voucher</div>
+        <div class="gem-badge">★ Local Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>Indian</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">MacGregor Village is actually one of the Triangle's best spots for authentic Indian cuisine, and Cilantro leads the pack. The chicken tikka masala and lamb biryani are standouts — fresh, aromatic, and priced honestly. A go-to for regulars.</div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="listing-cta" href="https://maps.google.com/?q=Cilantro+Indian+Cafe+Cary+NC" target="_blank">Directions</a>
+        <a class="listing-cta" href="https://www.cilantroindia.com/" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+
+
+  <a class="listing gem" href="https://maps.google.com/?q=The+Hangout+Bar+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-restaurant"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">The Hangout Bar</div>
+        <div class="gem-badge">★ Late Night</div>
+      </div>
+      <div class="listing-meta">
+        <span>Bar · Late Night</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">One of the most popular late-night spots in MacGregor Village — right next door. A lively, welcoming vibe that draws a crowd well into the night. Whether you're winding down after dinner or want to keep the evening going, this is your spot.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://www.gamersgeekery.com/" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-dice"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Gamers Geekery &amp; Tavern</div>
+      </div>
+      <div class="listing-meta">
+        <span>Bar · Board Games · Tabletop</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">More than a bar — a community hub where friends and families gather to eat, drink, and play. Built on a love of board games, role-playing adventures, and geek culture, it's a welcoming space for casual players, hardcore gamers, and everyone in between.</div>
+      <div class="listing-cta">Visit website</div>
+    </div>
+  </a>
+
+  <a class="listing gem" href="https://maps.google.com/?q=Asali+Desserts+Cafe+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-dessert"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Asali Desserts &amp; Cafe</div>
+        <div class="gem-badge">★ Hidden Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>Desserts · Café</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">Asali ("honey" in Swahili) is one of Cary's most beloved hidden gems. Creative desserts, beautiful plating, and a warm, intimate café environment. Bring someone you want to impress, or just treat yourself — both work equally well here.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <div class="listing">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-cookie"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Insomnia Cookies</div>
+      </div>
+      <div class="listing-meta">
+        <span>Cookies · Desserts · Late Night</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">Warm cookies, brownies, ice cream sandwiches, cookie cakes, and assorted cookie boxes. Open until 1am or later.</div>
+      <div class="listing-desc" style="margin-top:4px;">107 Edinburgh S Dr, Ste 141</div>
+      <a href="tel:+19193417391" style="display:flex; align-items:center; gap:8px; margin-top:7px; font-size:13.5px; font-weight:600; color:var(--plum); white-space:nowrap;"><span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-phone"/></svg></span> (919) 341-7391</a>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="listing-cta" href="https://maps.google.com/?q=Insomnia+Cookies+107+Edinburgh+S+Dr+Ste+141+Cary+NC+27511" target="_blank">Directions</a>
+        <a class="listing-cta" href="https://insomniacookies.com/" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORTH THE DRIVE -->
+  <div class="divider"></div>
+  <div class="category-label">Worth the Drive · 5–15 Minutes</div>
+
+  <a class="listing" href="https://cary.gonzatacosytequila.com" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-restaurant"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Gonza Tacos y Tequila</div>
+      </div>
+      <div class="listing-meta">
+        <span>Mexican · Colombian fusion</span>
+        <span>~7 min</span>
+      </div>
+      <div class="listing-desc">Award-winning tacos with a tequila program to match. The Colombian-Mexican mashup works in every possible way. Lively atmosphere, strong drinks, and a menu that punches above its casual appearance. A crowd-pleaser for groups.</div>
+      <div class="listing-cta">Visit website</div>
+    </div>
+  </a>
+
+  <a class="listing gem" href="https://maps.google.com/?q=Saap+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-restaurant"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Saap</div>
+        <div class="gem-badge">★ Hidden Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>Laotian</span>
+        <span>~8 min</span>
+      </div>
+      <div class="listing-desc">This is the kind of place you feel good about knowing. Casual and unassuming, Saap serves some of the boldest, most authentic Southeast Asian food in the entire Triangle — Laotian cuisine you genuinely can't find anywhere else nearby. Order anything, you won't be disappointed.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing gem" href="https://maps.google.com/?q=Scratch+Kitchen+Taproom+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-restaurant"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Scratch Kitchen &amp; Taproom</div>
+        <div class="gem-badge">★ Local Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>American · Brunch</span>
+        <span>~8 min</span>
+      </div>
+      <div class="listing-desc">The brunch here is the real deal — locals have voted their chicken and waffles among the best in the region. Everything is made from scratch. Craft taps, relaxed vibe, and a menu that goes well beyond the usual. Get here early on weekends.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing gem" href="https://maps.google.com/?q=Bosphorus+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-restaurant"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Bosphorus</div>
+        <div class="gem-badge">★ Hidden Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>Turkish</span>
+        <span>~10 min</span>
+      </div>
+      <div class="listing-desc">Tucked away and completely worth finding. Bosphorus brings genuine Turkish hospitality to Cary — the Adana kebab is the move, but everything on the menu is carefully made. End the meal with Turkish tea and you'll understand why this is a local secret.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://maps.google.com/?q=Lawrence+Barbecue+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-pig"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Lawrence Barbecue</div>
+      </div>
+      <div class="listing-meta">
+        <span>BBQ · North Carolina Style</span>
+        <span>~10 min · Downtown Cary</span>
+      </div>
+      <div class="listing-desc">One of the most anticipated restaurant openings in Cary in recent memory — and it lived up to the hype. NC-style BBQ with coastal and Tex-Mex influences woven in. Casual, smoky, and exactly what you want after a long day.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://lafarmbakerync.com" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-cafe"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">La Farm Bakery</div>
+      </div>
+      <div class="listing-meta">
+        <span>Artisan Bakery · Café</span>
+        <span>~10 min</span>
+      </div>
+      <div class="listing-desc">Master baker Lionel Vatinet produces 15 styles of bread daily from a European-style hearth oven. Think real croissants, seasonal tartines, and housemade everything. Perfect for stocking up on a quiet breakfast or picking up something for the in-suite kitchen.</div>
+      <div class="listing-cta">Visit website</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://maps.google.com/?q=Kababish+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-restaurant"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Kababish</div>
+        <div class="gem-badge">★ Hidden Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>Pakistani · Indian</span>
+        <span>~10 min</span>
+      </div>
+      <div class="listing-desc">A true local secret — Cary has a remarkable South Asian food scene, and Kababish is among the very best of it. Authentic Pakistani and Indian recipes, fresh ingredients, and the kind of food that makes you want to come back every night. Don't leave Cary without trying this.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://maps.google.com/?q=Lucky+32+Southern+Kitchen+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-restaurant"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Lucky 32 Southern Kitchen</div>
+      </div>
+      <div class="listing-meta">
+        <span>Southern · American</span>
+        <span>~7 min</span>
+      </div>
+      <div class="listing-desc">A Cary institution. Approachable Southern cooking with a menu that changes seasonally and a wine list that surprises people. The kind of place that works for a business dinner and a family night out equally well. A reliable classic.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <!-- RALEIGH WORTHY -->
+  <div class="divider"></div>
+  <div class="category-label">Worth the 20 Minute Drive · Raleigh</div>
+
+  <a class="listing gem" href="https://maps.google.com/?q=Dame%27s+Chicken+%26+Waffles+Raleigh+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-restaurant"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Dame's Chicken &amp; Waffles</div>
+        <div class="gem-badge">★ Local Favorite</div>
+      </div>
+      <div class="listing-meta">
+        <span>Brunch · Soul Food</span>
+        <span>~20 min · Raleigh</span>
+      </div>
+      <div class="listing-desc">"Almost world famous" is what they say — and they're not far off. You pick your waffle type, chicken cut, flavored butter, and toppings. Creative, comforting, and truly one-of-a-kind. The lines form early and for good reason.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://maps.google.com/?q=Waraji+Glenwood+Raleigh+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-restaurant"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Waraji</div>
+        <div class="gem-badge">★ Hidden Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>Japanese · Sushi · Omakase</span>
+        <span>~20 min · Raleigh</span>
+      </div>
+      <div class="listing-desc">A compact sushi bar on Glenwood Avenue that locals guard carefully. Omakase-style rolls, beautiful nigiri, and bento boxes made with real intention. Nothing fancy in appearance, everything exceptional in the bowl. Weekday lunch specials are a steal.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+
+  <div class="section-intro" style="margin-top:14px; border-top:1px solid var(--border);">
+    <h3>Sips &amp; Sweets</h3>
+    <p>Coffee, cocktails, dessert, and a couple of things you didn't know you needed.</p>
+  </div>
+
+  <div class="category-label">Coffee &amp; Bakeries</div>
+
+  <a class="listing gem" href="https://lafarmbakerync.com" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-cafe"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">La Farm Bakery</div>
+        <div class="gem-badge">★ Local Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>Artisan Bakery · Coffee</span>
+        <span>~10 min</span>
+      </div>
+      <div class="listing-desc">Wake up right. Master baker Lionel Vatinet's European-style hearth bakery is one of the best in the Southeast — real croissants, sourdough loaves, and coffee to match. Skip the chain and come here first.</div>
+      <div class="listing-cta">Visit website</div>
+    </div>
+  </a>
+
+  <a class="listing gem" href="https://maps.google.com/?q=Asali+Desserts+Cafe+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-dessert"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Asali Desserts &amp; Cafe</div>
+        <div class="gem-badge">★ Hidden Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>Desserts · Café</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">Asali ("honey" in Swahili) is one of Cary's most beloved hidden gems. Creative desserts, beautiful plating, and a warm, intimate café environment. Bring someone you want to impress, or just treat yourself — both work equally well here.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <div class="listing">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-cookie"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Insomnia Cookies</div>
+      </div>
+      <div class="listing-meta">
+        <span>Cookies · Desserts · Late Night</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">Warm cookies, brownies, ice cream sandwiches, cookie cakes, and assorted cookie boxes. Open until 1am or later.</div>
+      <div class="listing-desc" style="margin-top:4px;">107 Edinburgh S Dr, Ste 141</div>
+      <a href="tel:+19193417391" style="display:flex; align-items:center; gap:8px; margin-top:7px; font-size:13.5px; font-weight:600; color:var(--plum); white-space:nowrap;"><span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-phone"/></svg></span> (919) 341-7391</a>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="listing-cta" href="https://maps.google.com/?q=Insomnia+Cookies+107+Edinburgh+S+Dr+Ste+141+Cary+NC+27511" target="_blank">Directions</a>
+        <a class="listing-cta" href="https://insomniacookies.com/" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="category-label">Ice Cream &amp; Desserts</div>
+
+  <a class="listing gem" href="https://www.tworoosters.com" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-dessert"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Two Roosters Ice Cream</div>
+        <div class="gem-badge">★ NC Original</div>
+      </div>
+      <div class="listing-meta">
+        <span>Artisan Ice Cream</span>
+        <span>~8 min · Waverly Place</span>
+      </div>
+      <div class="listing-desc">Born out of a travel trailer in Raleigh, Two Roosters is now a Triangle institution. The flavors go well beyond vanilla — think grilled cheese, seasonal rotating specials, and creative combinations that actually work. A North Carolina original worth supporting. The Cary location opened in 2024.</div>
+      <div class="listing-cta">Visit website</div>
+    </div>
+  </a>
+
+  <div class="divider"></div>
+  <div class="category-label">Drinks</div>
+
+  <div class="listing">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-beer-glass"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">MacGregor Draft House</div>
+      </div>
+      <div class="listing-meta">
+        <span>Bar · Craft Beer</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">The easiest drink you'll ever find — literally steps from the front door. Strong tap selection and a full bar. The kind of neighborhood spot that earns regulars quickly.</div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="listing-cta" href="https://maps.google.com/?q=MacGregor+Draft+House+Cary+NC" target="_blank">Directions</a>
+        <a class="listing-cta" href="https://macgregordrafthouse.com/" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+
+  <a class="listing gem" href="https://cary.gonzatacosytequila.com" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-shot-lime"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Gonza Tacos y Tequila</div>
+        <div class="gem-badge">★ Cocktails</div>
+      </div>
+      <div class="listing-meta">
+        <span>Tequila Bar · Mexican</span>
+        <span>~7 min</span>
+      </div>
+      <div class="listing-desc">One of the better tequila programs in the Triangle, with serious margaritas and an extensive agave list. Come for the drinks, stay for the tacos. The bar area is a great way to spend a weeknight.</div>
+      <div class="listing-cta">Visit website</div>
+    </div>
+  </a>
+
+  <a class="listing gem" href="https://maps.google.com/?q=The+Hangout+Bar+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-beer-glass"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">The Hangout Bar</div>
+        <div class="gem-badge">★ Late Night</div>
+      </div>
+      <div class="listing-meta">
+        <span>Bar · Late Night</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">One of the most popular late-night spots in MacGregor Village — and it's right next door. A lively, welcoming vibe that draws a crowd well into the night. Perfect for winding down after dinner or keeping the evening going.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+</div>
+
+<!-- ══════════════════════════════════ -->
+<!-- TAB: EXPLORE                       -->
+<!-- ══════════════════════════════════ -->
+<div id="tab-do" class="section">
+
+  <div class="section-intro">
+    <h3>Explore Cary &amp; Raleigh</h3>
+    <p>From live entertainment to outdoor escapes — this area has more going on than most people realize.</p>
+    <div class="disc-legend"><span class="disc-badge" role="img" aria-label="Discount"><svg class="icon-svg"><use href="#icon-percent"/></svg></span><span>Discount for hotel guests</span></div>
+  </div>
+
+  <div class="category-label">Live Entertainment</div>
+
+  <a class="listing gem" href="https://www.boothamphitheatre.com" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-music"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Koka Booth Amphitheatre</div>
+        <div class="gem-badge">★ Must See</div>
+      </div>
+      <div class="listing-meta">
+        <span>Outdoor Concert Venue</span>
+        <span>~8 min · 8003 Regency Pkwy</span>
+      </div>
+      <div class="listing-desc">Set among 14 acres of hardwoods and pines next to Symphony Lake, Koka Booth is one of the best outdoor venues in the Southeast. Major touring acts, NC Symphony performances, food festivals, and July 4th fireworks. Check the calendar — there's often something on when you're here.</div>
+      <div class="listing-cta">Visit website</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://maps.google.com/?q=Lenovo+Center+Raleigh+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-hockey"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Lenovo Center</div>
+      </div>
+      <div class="listing-meta">
+        <span>Arena · Concerts · Hockey</span>
+        <span>~20 min · Raleigh</span>
+      </div>
+      <div class="listing-desc">Home of the Carolina Hurricanes and host to the biggest touring acts in the country. If there's a major show or an NHL game during your stay, this is where it's happening. One of the better arena experiences you'll find on the East Coast.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://maps.google.com/?q=Cary+Theater+122+E+Chatham+St+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-landmark"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">The Cary Theater</div>
+        <div class="gem-badge">★ Local Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>Indie Cinema · Live Events</span>
+        <span>~10 min · Downtown Cary</span>
+      </div>
+      <div class="listing-desc">A 1946 landmark beautifully restored and still running strong. This isn't a multiplex — expect hard-to-find documentaries, classic film screenings, local comedy nights, and live performances. Completely worth a visit if you want something different. Check their calendar online.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <div class="divider"></div>
+  <div class="category-label">Health &amp; Wellness</div>
+
+  <a class="listing gem" href="https://www.augmentwellness.com" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-leaf"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Augment Wellness</div>
+        <span class="disc-badge" title="Hotel guest discount" role="img" aria-label="Hotel guest discount"><svg class="icon-svg"><use href="#icon-percent"/></svg></span>
+        <div class="gem-badge">★ Hidden Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>Cold Plunge · Recovery · Biohacking</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">One of the most impressive wellness studios in the entire Triangle — and it's literally next door. Augment is a cold plunge and biohacking studio built around recovery, performance, and mental clarity. You'll find cold immersion tubs, infrared sauna, red light therapy, compression therapy, hyperbaric oxygen, BrainTap meditation, salt therapy, and more under one roof. Whether you're a road warrior who wants to reset after travel or someone who takes recovery seriously, this is a rare find. Book a session before you leave.</div>
+      <div class="listing-cta">Visit website</div>
+    </div>
+  </a>
+
+  <div class="listing">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-dumbbell"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">barre3</div>
+        <span class="disc-badge" title="Hotel guest discount" role="img" aria-label="Hotel guest discount"><svg class="icon-svg"><use href="#icon-percent"/></svg></span>
+      </div>
+      <div class="listing-meta">
+        <span>Fitness Studio · Barre</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">Welcoming fitness studio offering modifiable, full-body strength and cardio workouts.</div>
+      <div class="listing-desc" style="margin-top:4px;">107 Edinburgh S Dr, Ste 105</div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="listing-cta" href="https://maps.google.com/?q=barre3+107+Edinburgh+S+Dr+Ste+105+Cary+NC+27511" target="_blank">Directions</a>
+        <a class="listing-cta" href="https://barre3.com/studio-locations/cary" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="listing">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-lotus"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Spavia</div>
+        <span class="disc-badge" title="Hotel guest discount" role="img" aria-label="Hotel guest discount"><svg class="icon-svg"><use href="#icon-percent"/></svg></span>
+      </div>
+      <div class="listing-meta">
+        <span>Day Spa · Massage</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">Relaxing day spa offering personalized massages and facials in a tranquil retreat setting.</div>
+      <div class="listing-desc" style="margin-top:4px;">107 Edinburgh S Dr, Ste 155</div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="listing-cta" href="https://maps.google.com/?q=Spavia+Day+Spa+107+Edinburgh+S+Dr+Ste+155+Cary+NC+27511" target="_blank">Directions</a>
+        <a class="listing-cta" href="https://carync.spaviadayspa.com/services" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="category-label">Activities &amp; Fun</div>
+
+  <div class="listing">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-golf"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">X-Golf Cary</div>
+      </div>
+      <div class="listing-meta">
+        <span>Indoor Golf · Sports Bar</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">Indoor golf facility featuring accurate simulators and a sports bar with food and drinks.</div>
+      <div class="listing-desc" style="margin-top:4px;">107 Edinburgh S Dr, Ste 101A</div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="listing-cta" href="https://maps.google.com/?q=X-Golf+Cary+107+Edinburgh+S+Dr+Ste+101A+Cary+NC+27511" target="_blank">Directions</a>
+        <a class="listing-cta" href="https://playxgolf.com/locations/cary/" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+
+  <a class="listing" href="https://maps.google.com/?q=Drive+Shack+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-golf"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Drive Shack</div>
+      </div>
+      <div class="listing-meta">
+        <span>Interactive Golf · Food &amp; Drinks</span>
+        <span>~12 min</span>
+      </div>
+      <div class="listing-desc">Multi-level bay golf with virtual targets, challenges, and games — no experience necessary. Full food and drink menu, outdoor patio. A good one for groups, especially if the weather's cooperating. Works well for a team outing or a fun evening.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://maps.google.com/?q=Game+On+Escape+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-escape"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Game On Escape &amp; More</div>
+      </div>
+      <div class="listing-meta">
+        <span>Escape Rooms · Entertainment</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">Well-designed escape rooms for groups of 2–8. Good for team-building or just a fun break. Multiple themes and difficulty levels available. Book online in advance — they fill up on weekends.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://www.gamersgeekery.com/" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-dice"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Gamers Geekery &amp; Tavern</div>
+      </div>
+      <div class="listing-meta">
+        <span>Board Games · Tabletop · Bar</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">A community hub for board games, RPGs, and geek culture — with a full bar to match. Drop in for a casual game night or bring the whole group. Welcoming for beginners and hardcore gamers alike.</div>
+      <div class="listing-cta">Visit website</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://maps.google.com/?q=Apex+Racing+Lab+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-steering-wheel"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Apex Racing Lab</div>
+        <span class="disc-badge" title="Hotel guest discount" role="img" aria-label="Hotel guest discount"><svg class="icon-svg"><use href="#icon-percent"/></svg></span>
+      </div>
+      <div class="listing-meta">
+        <span>Motorsport Simulator</span>
+        <span>Outside your front door</span>
+      </div>
+      <div class="listing-desc">High-fidelity racing simulators used by actual competitive drivers for training — now open to the public. You can book a session and experience some of the best sim racing hardware available outside of a professional team. Surprisingly addictive.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://maps.google.com/?q=CMX+CineBistro+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-cinema"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">CMX CineBistro</div>
+      </div>
+      <div class="listing-meta">
+        <span>Dine-In Cinema</span>
+        <span>~8 min</span>
+      </div>
+      <div class="listing-desc">Full dinner and cocktails delivered to your reserved recliner seat while the movie plays. An elevated moviegoing experience — a step well above a standard theater. Book seats in advance online and arrive 30 minutes early to order food before the film starts.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://maps.google.com/?q=Page-Walker+Arts+History+Center+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-landmark"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Page-Walker Arts &amp; History Center</div>
+        <div class="gem-badge">★ Hidden Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>History · Art Gallery</span>
+        <span>~10 min · Downtown Cary</span>
+      </div>
+      <div class="listing-desc">Housed in a beautifully restored 1868 hotel building, this free gallery showcases Cary's history through artifacts and photographs from the railroad era through today. Small and intimate — takes about an hour — and almost no one outside the area knows to go. Completely worth it if you're curious.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <div class="divider"></div>
+  <div class="category-label">Nature &amp; Outdoors</div>
+
+  <a class="listing gem" href="https://maps.google.com/?q=Hemlock+Bluffs+Nature+Preserve+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-nature"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Hemlock Bluffs Nature Preserve</div>
+        <div class="gem-badge">★ Hidden Gem</div>
+      </div>
+      <div class="listing-meta">
+        <span>Nature Preserve · Trails</span>
+        <span>~10 min</span>
+      </div>
+      <div class="listing-desc">140 acres of protected forest featuring rare Eastern Hemlock trees — a species almost completely absent from North Carolina's Piedmont. Three miles of quiet, well-maintained trails. No crowds, no noise. If you have an hour to decompress, spend it here. Completely free.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://maps.google.com/?q=Fred+G.+Bond+Metro+Park+Cary+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-nature"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Bond Lake · Fred G. Bond Metro Park</div>
+      </div>
+      <div class="listing-meta">
+        <span>Park · Boating · Fishing</span>
+        <span>~10 min</span>
+      </div>
+      <div class="listing-desc">Rent a paddleboat or kayak on Bond Lake, fish from the banks, or just walk the trail that wraps around the water. One of the most peaceful spots in Cary — and few people outside the area know about it.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+  <a class="listing" href="https://maps.google.com/?q=Downtown+Cary+Park+NC" target="_blank">
+    <div class="listing-icon"><svg class="icon-svg"><use href="#icon-nature"/></svg></div>
+    <div class="listing-body">
+      <div class="listing-top">
+        <div class="listing-name">Downtown Cary Park</div>
+      </div>
+      <div class="listing-meta">
+        <span>Park · Events · Live Music</span>
+        <span>~10 min</span>
+      </div>
+      <div class="listing-desc">Completely reimagined and reopened in 2023 after two decades. Seven acres with a great lawn, pavilion, feature fountain, and a packed calendar of free events — live music, outdoor movies, fitness classes, and art exhibitions most evenings. Check what's on while you're here.</div>
+      <div class="listing-cta">Directions</div>
+    </div>
+  </a>
+
+</div>
+
+<!-- ══════════════════════════════════ -->
+<!-- TAB: OUR HOTEL                    -->
+<!-- ══════════════════════════════════ -->
+<div id="tab-hotel" class="section hotel-section">
+
+  <div class="hotel-hero">
+    <h3>Residence Inn Cary–Raleigh</h3>
+    <p style="font-size:23px; font-weight:300; color:white; margin-top:6px; line-height:1.25;">Your Home Away From Home</p>
+  </div>
+
+  <div class="category-label">Hotel Amenities</div>
+
+  <div class="amenity-grid">
+    <div class="amenity-item" id="breakfast-amenity">
+      <div class="amenity-icon"><svg class="icon-svg"><use href="#icon-cafe"/></svg></div>
+      <div>
+        <div class="amenity-text">Complimentary Hot Breakfast</div>
+        <div class="amenity-sub">M–F 6:30–9:30am · Sat–Sun 7–10am</div>
+      </div>
+    </div>
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg class="icon-svg"><use href="#icon-bar"/></svg></div>
+      <div>
+        <div class="amenity-text">On-Site Bar</div>
+        <div class="amenity-sub">Daily 5pm – 10pm</div>
+      </div>
+    </div>
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg class="icon-svg"><use href="#icon-dumbbell"/></svg></div>
+      <div>
+        <div class="amenity-text">Fitness Center</div>
+        <div class="amenity-sub">Open 24 hours</div>
+      </div>
+    </div>
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg class="icon-svg"><use href="#icon-waves"/></svg></div>
+      <div>
+        <div class="amenity-text">Pool</div>
+        <div class="amenity-sub">Daily 6am – 9pm</div>
+      </div>
+    </div>
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg class="icon-svg"><use href="#icon-pot"/></svg></div>
+      <div>
+        <div class="amenity-text">Full Kitchen</div>
+        <div class="amenity-sub">In every suite</div>
+      </div>
+    </div>
+    <div class="amenity-item" id="laundry-amenity">
+      <div class="amenity-icon"><svg class="icon-svg"><use href="#icon-shirt"/></svg></div>
+      <div>
+        <div class="amenity-text">Guest Laundry</div>
+        <div class="amenity-sub">Open 24/7 · $16 credit</div>
+      </div>
+    </div>
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg class="icon-svg"><use href="#icon-presentation"/></svg></div>
+      <div>
+        <div class="amenity-text">Meeting Spaces</div>
+        <div class="amenity-sub">Flexible layouts</div>
+      </div>
+    </div>
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg class="icon-svg"><use href="#icon-flame"/></svg></div>
+      <div>
+        <div class="amenity-text">Fire Pit &amp; Guest Grill</div>
+        <div class="amenity-sub">Outdoor patio · Available for guest use</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GROCERY SERVICE CALLOUT -->
+  <div style="background: var(--gem-bg); border-left: 4px solid var(--gold); margin: 6px 0 2px; padding: 18px 20px;">
+    <div style="display:flex; gap:14px; align-items:flex-start;">
+      <div style="flex-shrink:0; margin-top:2px; color:var(--gold);"><svg class="icon-svg" width="28" height="28"><use href="#icon-cart"/></svg></div>
+      <div>
+        <div style="font-size:10px; font-weight:800; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;">Complimentary Service</div>
+        <div style="font-size:16px; font-weight:600; color:var(--plum-dark); margin-bottom:6px;">Grocery Shopping</div>
+        <div style="font-size:13.5px; color:#4a4a4a; line-height:1.6;">We'll do your grocery run for you. Fill out the grocery list in your room and drop it off at the Front Desk — we'll handle the shopping and have everything waiting in your suite. The perfect way to make the most of your in-room kitchen without losing time on your trip.</div>
+        <div style="margin-top:10px; font-size:12.5px; font-weight:600; color:var(--plum); letter-spacing:0.03em;">How it works: Fill out list in room → Drop off at Front Desk → Groceries delivered to your suite</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAUNDRY CREDIT CALLOUT -->
+  <div id="laundry-credit" style="background: var(--gem-bg); border-left: 4px solid #009B8E; margin: 2px 0; padding: 18px 20px;">
+    <div style="display:flex; gap:14px; align-items:flex-start;">
+      <div style="flex-shrink:0; margin-top:2px; color:#009B8E;"><svg class="icon-svg" width="28" height="28"><use href="#icon-shirt"/></svg></div>
+      <div>
+        <div style="font-size:10px; font-weight:800; letter-spacing:0.16em; text-transform:uppercase; color:#009B8E; margin-bottom:4px;">Your Laundry Voucher</div>
+        <div style="font-size:16px; font-weight:600; color:var(--plum-dark); margin-bottom:6px;">$16 Laundry Credit</div>
+        <div style="font-size:13.5px; color:#4a4a4a; line-height:1.6;">Guest laundry is open 24/7, and we&rsquo;re covering $16 per week for your group. Just download the AirWallet app, then give the Front Desk your cell phone number and we&rsquo;ll add the credit to your app.</div>
+        <div style="margin-top:10px; font-size:12.5px; font-weight:600; color:var(--plum); letter-spacing:0.03em;">How it works: Download the AirWallet app → Give the Front Desk your cell number → We add your $16 credit</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-label">Contact &amp; Getting Here</div>
+
+  <div class="contact-card">
+    <h4>Reach Us</h4>
+    <a class="contact-row" href="tel:+19193770700">
+      <div class="contact-row-icon"><svg class="icon-svg"><use href="#icon-phone"/></svg></div>
+      <div>
+        <div class="contact-row-label">Front Desk</div>
+        <div class="contact-row-value">(919) 377-0700</div>
+      </div>
+    </a>
+    <a class="contact-row" href="https://maps.google.com/?q=103+Edinburgh+South+Drive+Cary+NC+27511" target="_blank">
+      <div class="contact-row-icon"><svg class="icon-svg"><use href="#icon-pin"/></svg></div>
+      <div>
+        <div class="contact-row-label">Address</div>
+        <div class="contact-row-value">103 Edinburgh South Drive<br>Cary, NC 27511</div>
+      </div>
+    </a>
+    <a class="contact-row" href="https://www.marriott.com/rdurc" target="_blank">
+      <div class="contact-row-icon"><svg class="icon-svg"><use href="#icon-globe"/></svg></div>
+      <div>
+        <div class="contact-row-label">Book Direct Online</div>
+        <div class="contact-row-value">marriott.com/rdurc</div>
+      </div>
+    </a>
+    <a class="contact-row" href="tel:+18558110860">
+      <div class="contact-row-icon"><svg class="icon-svg"><use href="#icon-smartphone"/></svg></div>
+      <div>
+        <div class="contact-row-label">Book Direct by Phone</div>
+        <div class="contact-row-value">855-811-0860</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="category-label" id="hotel-management" style="scroll-margin-top:52px;">Hotel Management</div>
+
+  <!-- HOTEL MANAGEMENT CONTACTS -->
+  <div style="background:white; margin:6px 0 2px; padding:20px 20px 18px;">
+    <div style="font-size:10px; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--plum); margin-bottom:14px;">Here for Your Group</div>
+
+    <!-- Maria Eaton -->
+    <div style="border:1px solid var(--border); border-radius:10px; padding:16px; margin-bottom:12px;">
+      <div style="display:flex; align-items:flex-start; gap:12px;">
+        <div style="width:42px; height:42px; border-radius:50%; background:var(--plum); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; color:white; font-weight:700;">ME</div>
+        <div style="flex:1;">
+          <div style="font-size:15px; font-weight:700; color:var(--plum-dark); margin-bottom:2px;">Maria Eaton</div>
+          <div style="font-size:12px; color:var(--text-muted); line-height:1.4; margin-bottom:10px;">Director of Sales</div>
+          <a href="tel:+19194103118" style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--plum); font-weight:600; margin-bottom:6px;">
+            <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-phone"/></svg></span> (919) 410-3118
+          </a>
+          <a href="mailto:Maria.Eaton2@marriott.com" style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--plum); font-weight:500; word-break:break-all;">
+            <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-mail"/></svg></span> Maria.Eaton2@marriott.com
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- David Press -->
+    <div style="border:1px solid var(--border); border-radius:10px; padding:16px; margin-bottom:12px;">
+      <div style="display:flex; align-items:flex-start; gap:12px;">
+        <div style="width:42px; height:42px; border-radius:50%; background:var(--plum-light); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; color:white; font-weight:700;">DP</div>
+        <div style="flex:1;">
+          <div style="font-size:15px; font-weight:700; color:var(--plum-dark); margin-bottom:2px;">David Press</div>
+          <div style="font-size:12px; color:var(--text-muted); line-height:1.4; margin-bottom:10px;">General Manager</div>
+          <a href="tel:+15857296930" style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--plum); font-weight:600; margin-bottom:6px;">
+            <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-phone"/></svg></span> (585) 729-6930
+          </a>
+          <a href="mailto:David.Press@marriott.com" style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--plum); font-weight:500; word-break:break-all;">
+            <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-mail"/></svg></span> David.Press@marriott.com
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tyler Raybin -->
+    <div style="border:1px solid var(--border); border-radius:10px; padding:16px;">
+      <div style="display:flex; align-items:flex-start; gap:12px;">
+        <div style="width:42px; height:42px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; color:white; font-weight:700;">TR</div>
+        <div style="flex:1;">
+          <div style="font-size:15px; font-weight:700; color:var(--plum-dark); margin-bottom:2px;">Tyler Raybin</div>
+          <div style="font-size:12px; color:var(--text-muted); line-height:1.4; margin-bottom:10px;">Guest Services Manager</div>
+          <a href="tel:+19199462276" style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--plum); font-weight:600; margin-bottom:6px;">
+            <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-phone"/></svg></span> (919) 946-2276
+          </a>
+          <a href="mailto:Tyler.Raybin@marriott.com" style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--plum); font-weight:500; word-break:break-all;">
+            <span class="icon-inline" style="display:inline-flex; vertical-align:-2.5px;"><svg class="icon-svg icon-inline"><use href="#icon-mail"/></svg></span> Tyler.Raybin@marriott.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GROUP SALES CALLOUT -->
+  <div style="background: var(--plum-dark); margin: 6px 0 2px; padding: 22px 20px;">
+    <div style="display:flex; gap:14px; align-items:flex-start;">
+      <div style="flex-shrink:0; margin-top:2px; color:var(--gold);"><svg class="icon-svg" width="28" height="28"><use href="#icon-message"/></svg></div>
+      <div>
+        <div style="font-size:10px; font-weight:800; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;">Let Us Know</div>
+        <div style="font-size:16px; font-weight:600; color:#ffffff; margin-bottom:8px;">We Want to Serve You Better</div>
+        <div style="font-size:13.5px; color:rgba(255,255,255,0.8); line-height:1.7;">We want to know why you're travelling so we can better serve you! Is someone in your life planning a wedding, special event, or interested in corporate pricing? Our on-site sales team would love to learn how they can make it easier for you.</div>
+        <div style="margin-top:14px; display:inline-block; background:var(--gold); color:white; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:9px 18px; border-radius:4px;">See Reception Desk for Details</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bonvoy-strip" style="flex-direction: column; align-items: flex-start; gap: 16px;">
+    <div style="display:flex; gap:14px; align-items:flex-start;">
+      <div class="icon" style="color:var(--gold-light);"><svg class="icon-svg" width="26" height="26"><use href="#icon-star"/></svg></div>
+      <div>
+        <h4>Marriott Bonvoy Member?</h4>
+        <p>Earn and redeem points on this stay. Members also enjoy mobile check-in, room selection, and exclusive rates.</p>
+      </div>
+    </div>
+    <div style="display:flex; gap:16px; align-items:center; width:100%;">
+      <img src="data:image/png;base64,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"
+           alt="Scan to enroll in Marriott Bonvoy"
+           style="width:90px; height:90px; border-radius:6px; background:white; padding:5px; flex-shrink:0;" />
+      <div>
+        <div style="font-size:12px; font-weight:700; color:var(--gold); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;"><span class="icon-inline" style="display:inline-flex; vertical-align:-2px;"><svg class="icon-svg icon-inline"><use href="#icon-gift"/></svg></span> Free Snack Offer</div>
+        <p style="font-size:13px; color:rgba(255,255,255,0.75); line-height:1.5;">Enroll in Marriott Bonvoy and add your member number to your stay — we'll treat you to a free snack from our market. Just let us know at the front desk!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRIPADVISOR REVIEW SECTION -->
+  <a href="https://www.tripadvisor.com/Hotel_Review-g49007-d34107878-Reviews-Residence_Inn_by_Marriott_Cary_Raleigh-Cary_North_Carolina.html" target="_blank" style="display:block; background:#00EB5B; margin:6px 0 2px; padding:16px 20px; text-decoration:none; font-family:'Poppins',sans-serif;">
+    <div style="display:flex; gap:14px; align-items:center;">
+      <div style="background:white; border-radius:10px; padding:6px; flex-shrink:0; box-shadow:0 2px 6px rgba(0,43,17,0.12);">
+        <img src="data:image/png;base64,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" alt="Scan to review on Tripadvisor" style="width:72px; height:72px; display:block;" />
+      </div>
+      <div style="flex:1;">
+        <div style="display:flex; align-items:center; gap:7px; margin-bottom:5px;">
+          <svg width="28" height="19" viewBox="0 0 44 30" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="3,0 8,10 0,10" fill="#002B11"/>
+            <polygon points="41,0 44,10 36,10" fill="#002B11"/>
+            <circle cx="13" cy="17" r="12" fill="#002B11"/>
+            <circle cx="13" cy="17" r="8" fill="white"/>
+            <circle cx="13" cy="17" r="4.5" fill="#002B11"/>
+            <circle cx="13" cy="17" r="2" fill="white"/>
+            <rect x="20.5" y="11" width="3" height="12" rx="1.5" fill="#002B11"/>
+            <circle cx="31" cy="17" r="12" fill="#002B11"/>
+            <circle cx="31" cy="17" r="8" fill="white"/>
+            <circle cx="31" cy="17" r="4.5" fill="#002B11"/>
+            <circle cx="31" cy="17" r="2" fill="white"/>
+            <polygon points="19,23 22,29 25,23" fill="#002B11"/>
+          </svg>
+          <span style="font-size:15px; font-weight:700; color:#002B11; letter-spacing:-0.2px; font-family:'Poppins',sans-serif;">Tripadvisor</span>
+        </div>
+        <div style="font-size:13px; font-weight:700; color:#002B11; margin-bottom:6px; font-family:'Poppins',sans-serif;">Loved your stay? Leave us a review →</div>
+        <svg width="88" height="18" viewBox="0 0 220 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="22" r="20" fill="#00AB42"/>
+          <circle cx="66" cy="22" r="20" fill="#00AB42"/>
+          <circle cx="110" cy="22" r="20" fill="#00AB42"/>
+          <circle cx="154" cy="22" r="20" fill="#00AB42"/>
+          <circle cx="198" cy="22" r="20" fill="#00AB42"/>
+        </svg>
+      </div>
+    </div>
+  </a>
+
+  <div style="background:white; padding: 20px; margin-top: 6px;">
+    <div style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px;">A Note from Your Team</div>
+    <p style="font-size: 14px; line-height: 1.7; color: #4a4a4a;">We've put this guide together because we genuinely know this area — many of these spots are places we eat and visit ourselves. If you want a personal recommendation, have a question, or need anything at all during your stay, please don't hesitate to come find us at the front desk.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Residence Inn by Marriott · Cary–Raleigh</p>
+  <p style="margin-top: 4px;">103 Edinburgh South Drive · Cary, NC 27511</p>
+</footer>
+
+<script>
+  function showTab(name, btn) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+    // Deactivate all tabs
+    document.querySelectorAll('.tab-bar button').forEach(b => b.classList.remove('active'));
+    // Show selected section
+    document.getElementById('tab-' + name).classList.add('visible');
+    // Activate selected tab
+    btn.classList.add('active');
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
